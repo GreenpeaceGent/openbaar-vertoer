@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/image-grid.css">
+    <script src="database/stage1.js"></script>
+    <script src="js/location.js"></script>
+    <script src="js/location_bg.js"></script>
+    <script src="js/routeStuff.js"></script>
+    <script src="js/imageStuff.js"></script>
+    <title>Openbaar VerToer Fase 1</title>
+</head>
+<body>
+<div id="overlay" class="overlay">
+    <div class="loader"></div>
+</div>
+<div id="bus-route-overlay"
+     style="background-color:white;cursor:pointer;display:none;">
+    <h2>Instructies voor de bus route</h2>
+    <ul>
+        <li>Wandel naar bushalte Puinstraat in de Ferdinand Lousbergkaai (150m vanaf Herberg Macharius), hou het water aan je rechterkant.</li>
+        <li>Neem de bus <strong>of</strong> wandel tot halte Eendrachtstraat
+            <ul>
+                <li><strong>Bus: </strong> Neem bus <strong>17</strong> of <strong>18</strong> richting P+R Oostakker, stap af aan de tweede halte.
+                    <ul><li><a target="_blank" href="https://www.delijn.be/nl/haltes/halte/201226/Gent_Puinstraat">Klik hier om de doorkomsten van vertrekhalte Puinstraat te zien.</a></li></ul></li>
+                <strong>OF</strong>
+                <li><strong>Wandel (550m): </strong><ul>
+                    <li>Volg de Ferdinand Lousbergkaai tot aan de eerste brug, hou het water aan je rechter kant.</li>
+                    <li>Sla linksaf de Kasteellaan in.</li>
+                    <li>Wandel tot aan de eerste bushalte die aan de rechterkant ligt (halte Eendrachtstraat)</li></ul></li>
+                <li>Bekijk deze route: <a target="_blank" href="images/stage1/wandelingNaarKasteellaan.jpg">Toon kaartje</a> ---  <a target="_blank" href="https://www.google.com/maps/dir/Gent+Puinstraat/Gent+Eendrachtstraat/@51.0503519,3.7379653,17.09z/data=!4m14!4m13!1m5!1m1!1s0x47c3714c812e64eb:0x9c73e738b4161f76!2m2!1d3.7364056!2d51.0516995!1m5!1m1!1s0x47c376b33ff7a53d:0x8bc5ac04750fcd8b!2m2!1d3.7407986!2d51.0506173!3e0">Google Maps</a></li>
+            </ul></li>
+        <li>Neem bus <strong>70</strong>, <strong>71</strong> of <strong>72</strong> richting Oostakker tot halte Goedlevenstraat (Wegens een omleiding, rijden deze bussen tot deze halte, al is dit niet te vinden in de routeplanner van De Lijn...)
+            <ul><li><a target="_blank" href="https://www.delijn.be/nl/haltes/halte/201224/Gent_Eendrachtstraat">Klik hier om de doorkomsten van vertrekhalte Eendrachtstraat te zien.</a></li></ul></li>
+        <li>Stap af aan halte Goedlevenstraat --- <a target="_blank" href="https://www.google.com/maps/place/Oostakker+Goedlevenstraat/@51.077716,3.7641129,16.93z/data=!4m9!1m2!2m1!1shalte+goedlevenstraat!3m5!1s0x47c3772005f6dfc5:0x7fdd2f3ce8f8bf9d!8m2!3d51.0774518!4d3.7669807!15sChVoYWx0ZSBnb2VkbGV2ZW5zdHJhYXSSAQhidXNfc3RvcA">Google Maps</a> </li>
+    </ul>
+
+    <a class="btn btn-info" onclick="closeBusRouteOverlay()">Sluit instructies</a>
+</div>
+<div id="bike-route-overlay" onclick="closeBikeRouteOverlay()"
+     style="background-color:white;cursor:pointer;display:none;">
+    <h2>Instructies voor de fiets route</h2>
+    <img style="max-width:100%;max-height:100%;" src="images/stage2/map.png">
+
+    <a class="btn btn-info" onclick="closeBikeRouteOverlay()">Sluit instructies</a>
+</div>
+<div id="einde-fase-overlay" onclick="closeEindeFaseOverlay()" class="overlay"
+     style="background-color:white;cursor:pointer;">
+    <h2>Afstappen! Dit is het einde van de eerste fase.</h2>
+    <p>Je hebt <span id="aantal-juist"></span> van de 9 foto's gevonden!</p>
+    <p>Alle foto's zijn vrij gespeeld; tik er op om de boodschap te zien.</p>
+
+    <a class="btn btn-info" onclick="closeEindeFaseOverlay()">Sluit deze boodschap</a>
+</div>
+<div id="imageOverlay" onclick="closeImageOverlay()" class="overlay">
+    <img id="overlayImage" src="">
+    <img id="resultImage" src="" style="width:100%;">
+    <a id="locationChecker" class="btn btn-warning">Check locatie</a>
+    <div id="informatie" style="display:none; color:#FFFFFF; margin-bottom:40px;">
+        <div id="info-message"></div>
+
+    </div>
+    <p style="color:#CCCCCC;">Tik eender waar om terug te sluiten. <strong>Gebruik niet de vorige knop!</strong></p>
+</div>
+
+<nav class="navbar navbar-dark" style="background-color: #5c5c5c;">
+    <div>
+        <div class="float-right">
+            <a class="btn btn-secondary" onclick="showBusRoute()"><img width="50px" height="50px" src="images/bus.png"></a>
+            <a class="btn btn-secondary" onclick="showBikeRoute()"><img width="50px" height="50px"
+                                                                        src="images/fiets.png"></a>
+        </div>
+        <div><h1>Openbaar VerToer - Belmundo - Fase 1</h1></div>
+    </div>
+</nav>
+
+<div class="instructions"><p><strong>Instructies: </strong>Volg de route tot halte Goedlevenstraat. Hou je ogen open: langs
+    deze weg liggen de 9 afbeeldingen die je hieronder ziet.
+    Alle foto's zijn te identificeren vanop de route, al zijn ze niet vanop de bus getrokken.
+    Op het einde krijg je een score van het aantal gevonden foto's. Mis er dus zeker geen!</p>
+    <p><strong>Route: </strong> Zie bus/fietser/wandelaar knop rechts bovenaan.</p>
+    <p><strong>Zo werkt het: </strong>
+    <ul>
+        <li>Klik op een foto om te vergroten.</li>
+        <li>Klik op 'Check locatie' indien je denkt op de plaats van die foto te zijn.</li>
+        <li>Tik eender waar op het scherm, om de afbeelding of bericht terug te sluiten. GEBRUIK NOOIT DE VORIGE KNOP
+        </li>
+        <li>Je krijgt een bericht of het juist is, en wat meer informatie over openbaar vervoer indien het correct is.
+        </li>
+    </ul>
+    </p>
+    <p><strong>Hint:</strong> De foto's staan in willekeurige volgorde.</p>
+</div>
+<div class="grid-container" id="imageGrid">
+</div>
+
+<div class="footer">
+    <p id="default-footer">Je bent nog niet aan het einde van deze fase.<a onclick="triggerEindeFase();"
+                                                                           class="btn btn-warning">Beïndig Fase 1
+        vroegtijdig.</a></p>
+    <a id="won-footer" href="fase2.html" class="btn btn-success" style="display:none">Ga naar fase 2</a>
+    <p><strong onclick="resetLocations();" style="color:red;">Reset (wist geheugen)</strong></p>
+</div>
+
+<script>
+
+
+function startAreWeThereYet(){
+    atLocationWithRadius_bg(51.07735953394975, 3.766665202354416, 0.003, areWeNearTheEnd);
+    atLocationWithRadius_bg(51.05072841855826, 3.7407883092551613, 0.002, areWeNearKasteellaan);
+}
+var alertedKasteellaan = false;
+function areWeNearKasteellaan(weAre){
+    if(weAre && !alertedKasteellaan){
+        alertedKasteellaan = true;
+        alert("Indien je de bus neemt, afstappen aan de volgende halte 'Gent Eendrachtstraat'.");
+    }
+}
+
+
+
+
+</script>
+</body>
+</html>
