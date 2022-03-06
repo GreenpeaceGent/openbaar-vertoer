@@ -8,7 +8,7 @@ var locationsNew = [
          "lat": 51.0703057283781,
          "long":  3.7624012330467242
       },
-      "message": "placeholder"
+      "message": "Als u het spel op 6/3/2022 speelt, zult u hier een houten bus zien staan en enkele mensen van Zonder Bushalte Straat. Deze bus is ontstaan tijdens een actie met Zonder Bushalte Straat, Busje Blijft Zo en Greenpeace Gent. Wees welkom om een foto te nemen en deze te delen met #stopdehaltesloop.<br><img style='width:100%' src='images/stage2/buspaneel.jpg'>"
     },
     {
       "id": "2-2",
@@ -29,7 +29,7 @@ var locationsNew = [
         "lat": 51.07163310476768,
         "long":  3.76885520142914
       },
-      "message": "Wanneer de busverbinding in de wijk geschrapt wordt, is de kortste weg naar een andere bushalte door deze wegel. Het pad is onverhard en vol met putten (plassen als het regent) en er is geen straatverlichting. Voor mensen die minder mobiel zijn, is dit absoluut geen oplossing."
+      "message": "Wanneer de busverbinding in de wijk geschrapt wordt, is de kortste weg naar een andere bushalte door deze wegel. Het pad is onverhard en vol met putten (plassen als het regent) en er is geen straatverlichting. Voor mensen die minder mobiel zijn, is dit absoluut geen oplossing.<br><img style='width:100%' src='images/stage2/karnemelkwegel.jpg'>"
     },    {
       "id": "2-4",
       "found": false,
@@ -59,7 +59,7 @@ var locationsNew = [
         "lat": 51.07366957276086,
         "long": 3.7687873946555586
       },
-             "message": "Hier bevindt zich het Centrum voor Volwassenonderwijs CVO Groeipunt. Veel studenten maken gebruik van de bushalte voor de deur. Aan deze halte hebben een aantal protestacties plaatsgevonden van lokaal actiecomité Zonder Bushalte Straat, dat ijvert voor het behoud van de lijnbus in de wijk."
+             "message": "Hier bevindt zich het Centrum voor Volwassenonderwijs CVO Groeipunt. Veel studenten maken gebruik van de bushalte voor de deur. Aan deze halte hebben een aantal protestacties plaatsgevonden van lokaal actiecomité Zonder Bushalte Straat, dat ijvert voor het behoud van de lijnbus in de wijk. In juni 2021 en op 6 maart 2022 laten we symbolisch het doek vallen over de reeds afgeschafte halte aan de overkant.<br><br><img style='width:100%' src='images/stage2/actieCVO.jpg'>"
     },    {
       "id": "2-7",
       "found": false,
@@ -89,7 +89,7 @@ var locationsNew = [
         "lat": 51.071898890596486,
         "long":  3.7644290411768195
       },
-             "message": "placeholder"
+             "message": "Op plaatsen waar geen reguliere bus meer zal rijden komt er 'Vervoer op Maat' met  flexbussen, deelfietsen, -steps en -auto’s. Een mooi idee, maar geen alternatief voor bestaande busverbindingen. Aangezien veel mensen niet kunnen of met de auto rijden, met nog meer vervoersarmoede als resultaat. Daarbij komen nieuwe drempels: je moet apart reserveren en zult er wellicht meer voor moeten betalen dan vandaag (het is een privatisering)."
     }
   ];
 
